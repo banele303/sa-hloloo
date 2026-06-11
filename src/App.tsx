@@ -16,6 +16,34 @@ const stagger = {
   transition: { duration: 0.5, staggerChildren: 0.15 }
 }
 
+const graduationPhotos = [
+  {
+    src: '/images/graduates.jpeg',
+    alt: 'Three SA Hlolo Entle graduates celebrating after the ceremony',
+    title: 'Graduate celebration',
+  },
+  {
+    src: '/images/graduates2.jpeg',
+    alt: 'Two graduates posing at the graduation backdrop',
+    title: 'Achievement moment',
+  },
+  {
+    src: '/images/graduates3.jpeg',
+    alt: 'A graduate standing outdoors in her gown',
+    title: 'Proud graduate',
+  },
+  {
+    src: '/images/graduates4.jpeg',
+    alt: 'Graduation ceremony taking place on stage',
+    title: 'Ceremony stage',
+  },
+  {
+    src: '/images/graduates5.jpeg',
+    alt: 'Graduate receiving her blue academic hood on stage',
+    title: 'Hooding ceremony',
+  },
+]
+
 function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -31,6 +59,7 @@ function Navbar() {
     { label: 'Vision', href: '#vision' },
     { label: 'Academics', href: '#academics' },
     { label: 'Values', href: '#values' },
+    { label: 'Gallery', href: '#gallery' },
     { label: 'Contact', href: '#contact' },
   ]
 
@@ -92,11 +121,10 @@ function Navbar() {
 function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900" />
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500 rounded-full blur-[120px]" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500 rounded-full blur-[120px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-400/30 rounded-full blur-[150px]" />
+      <div className="absolute inset-0">
+        <img src={graduationPhotos[0].src} alt="" aria-hidden="true" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gray-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/75 to-gray-950/30" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
@@ -155,7 +183,7 @@ function About() {
 
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" alt="Training" className="w-full h-[400px] object-cover" />
+              <img src={graduationPhotos[2].src} alt={graduationPhotos[2].alt} className="w-full h-[400px] object-cover object-top" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl px-6 py-4">
@@ -231,58 +259,32 @@ function Vision() {
 
 function Academics() {
   const programs = [
-    { seta: 'EDTP SETA', qualifications: [
-      { id: '23117', level: '5', credits: '120', title: 'Higher Certificate: Early Childhood Development' },
-      { id: '58761', level: '4', credits: '140', title: 'FET Certificate: Early Childhood Development' },
-      { id: '73254', level: '1', credits: '120', title: 'General Education & Training Certificate: ECD' },
-    ]},
-    { seta: 'AGRISETA', qualifications: [
-      { id: '48970', level: '1', credits: '120', title: 'National Certificate: Animal Production' },
-    ]},
+    'Early Childhood Development Practitioner',
+    'Project Manager',
+    'Occupational Certificate: Christian Religious Professional',
+    'Occupational Certificate: Poultry Farmer',
+    'Livestock Farmer (Livestock Farmer Supervisor)',
+    'Crop Analysis',
   ]
 
   return (
     <section id="academics" className="py-24 sm:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center mb-16" {...fadeUp}>
-          <span className="text-sm font-bold text-amber-600 uppercase tracking-[0.2em]">Programs</span>
-          <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mt-4">SETA-Accredited Qualifications</h2>
-          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">Nationally recognized qualifications designed to equip learners with practical skills and knowledge.</p>
+          <span className="text-sm font-bold text-amber-600 uppercase tracking-[0.2em]">Programs Study</span>
+          <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mt-4">Admission Now Open for 2026</h2>
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">Choose from practical programs designed to equip learners with career-ready skills and knowledge.</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {programs.map((prog, i) => (
-            <motion.div key={prog.seta} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
-              className="rounded-3xl border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow"
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {programs.map((program, i) => (
+            <motion.div key={program} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+              className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-amber-200 hover:shadow-xl transition-all"
             >
-              <div className="bg-gradient-to-r from-amber-600 to-orange-500 px-6 py-5">
-                <div className="flex items-center gap-3">
-                  <GraduationCap className="w-6 h-6 text-white" />
-                  <h3 className="text-xl font-bold text-white">{prog.seta}</h3>
-                </div>
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center mb-5 shadow-lg shadow-amber-600/20">
+                <GraduationCap className="w-6 h-6 text-white" />
               </div>
-              <div className="p-6">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-gray-100">
-                      <th className="text-left py-3 text-gray-500 font-medium">ID</th>
-                      <th className="text-left py-3 text-gray-500 font-medium">Level</th>
-                      <th className="text-left py-3 text-gray-500 font-medium">Credits</th>
-                      <th className="text-left py-3 text-gray-500 font-medium">Title</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {prog.qualifications.map(q => (
-                      <tr key={q.id} className="border-b border-gray-50 last:border-0">
-                        <td className="py-3 font-mono text-amber-700">{q.id}</td>
-                        <td className="py-3">{q.level}</td>
-                        <td className="py-3">{q.credits}</td>
-                        <td className="py-3 text-gray-900 font-medium">{q.title}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <h3 className="text-lg font-bold text-gray-900 leading-snug">{program}</h3>
             </motion.div>
           ))}
         </div>
@@ -292,6 +294,40 @@ function Academics() {
             Apply Now <ChevronRight className="w-4 h-4" />
           </a>
         </motion.div>
+      </div>
+    </section>
+  )
+}
+
+function Gallery() {
+  return (
+    <section id="gallery" className="py-24 sm:py-32 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div className="text-center mb-16" {...fadeUp}>
+          <span className="text-sm font-bold text-amber-600 uppercase tracking-[0.2em]">Gallery</span>
+          <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mt-4">Celebrating Our Graduates</h2>
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">A glimpse of the learners, ceremonies, and proud moments that shape SA Hlolo Entle Holdings.</p>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {graduationPhotos.map((photo, i) => (
+            <motion.figure
+              key={photo.src}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className={`group overflow-hidden rounded-lg bg-white shadow-sm border border-gray-200 ${i === 0 ? 'lg:col-span-2 lg:row-span-2' : ''}`}
+            >
+              <div className={i === 0 ? 'h-full min-h-[420px]' : 'h-72'}>
+                <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <figcaption className="px-4 py-3">
+                <p className="text-sm font-semibold text-gray-900">{photo.title}</p>
+              </figcaption>
+            </motion.figure>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -353,7 +389,7 @@ function Contact() {
 
             <div className="space-y-6">
               {[
-                { icon: Mail, label: 'Email', value: 'HloloEntleHoldings@outlook.com', href: 'mailto:HloloEntleHoldings@outlook.com' },
+                { icon: Mail, label: 'Email', value: 'Sarah.m@hloloentleholdings.co.zo', href: 'mailto:Sarah.m@hloloentleholdings.co.zo' },
                 { icon: Phone, label: 'Phone', value: '083 777 2806 | 079 064 6850 | 061 585 6961', href: 'tel:+27837772806' },
                 { icon: MapPin, label: 'Address', value: '21 Van Der Walt, Kempton Park 1618', href: 'https://maps.google.com/?q=21+Van+Der+Walt+Kempton+Park' },
               ].map((item, i) => {
@@ -378,7 +414,7 @@ function Contact() {
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px]"
           >
-            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=80" alt="Contact" className="w-full h-full object-cover" />
+            <img src={graduationPhotos[4].src} alt={graduationPhotos[4].alt} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6">
@@ -423,6 +459,7 @@ export default function App() {
       <Vision />
       <Academics />
       <Values />
+      <Gallery />
       <Contact />
       <Footer />
     </div>
