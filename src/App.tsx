@@ -245,14 +245,13 @@ function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-        <a href="#home" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-gold to-amber-400 text-white shadow-glow">
-            <Sparkles size={21} aria-hidden="true" />
-          </span>
-          <span className="leading-tight">
-            <strong className="block text-sm font-black tracking-wide">SA HLOLO ENTLE</strong>
-            <small className={`block text-[11px] font-bold ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>HOLDINGS (PTY) LTD</small>
-          </span>
+        <a href="#home" className="flex items-center" onClick={() => setOpen(false)}>
+          <img
+            src="/images/newlogo.jpeg"
+            alt="SA Hlolo Entle Holdings"
+            className="h-16 w-16 rounded-full bg-white object-cover p-1 shadow-glow ring-1 ring-white/40"
+          />
+          <span className="sr-only">SA Hlolo Entle Holdings home</span>
         </a>
 
         <div className="hidden items-center gap-6 lg:flex">
@@ -841,13 +840,12 @@ function Footer() {
     <footer className="bg-navy-deep py-10 text-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gold text-white">
-            <Sparkles size={18} aria-hidden="true" />
-          </span>
-          <span>
-            <strong className="block text-sm font-black">SA HLOLO ENTLE HOLDINGS</strong>
-            <small className="block text-xs font-bold text-white/55">Training and Projects</small>
-          </span>
+          <img
+            src="/images/newlogo.jpeg"
+            alt="SA Hlolo Entle Holdings"
+            className="h-16 w-16 rounded-full bg-white object-cover p-1 shadow-glow ring-1 ring-white/20"
+          />
+          <span className="sr-only">SA Hlolo Entle Holdings</span>
         </div>
         <p className="text-sm font-bold text-white/55">&copy; {new Date().getFullYear()} HLOLO ENTLE HOLDINGS (PTY) LTD. All rights reserved.</p>
       </div>
