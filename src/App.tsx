@@ -140,18 +140,24 @@ const blogPosts = [
     title: 'How to choose the right 2026 program',
     category: 'Admissions',
     date: '2026 Intake',
+    image: '/images/blog-admissions-2026.svg',
+    imageAlt: 'Modern admissions checklist illustration for the 2026 intake',
     excerpt: 'A simple way to compare your goals with the learning path that fits your next career move.',
   },
   {
     title: 'Why practical skills matter in community development',
     category: 'Training',
     date: 'Learner Support',
+    image: '/images/blog-practical-skills.svg',
+    imageAlt: 'Modern practical skills training illustration with learners and checklist elements',
     excerpt: 'Training works best when learners can connect lessons to real work, service, and project delivery.',
   },
   {
     title: 'Agriculture pathways: poultry, livestock, and crop analysis',
     category: 'Agriculture',
     date: 'Program Focus',
+    image: '/images/blog-agriculture-pathways.svg',
+    imageAlt: 'Modern agriculture illustration showing crops and analysis notes',
     excerpt: 'A look at practical agricultural skills and why they matter for food systems and local opportunity.',
   },
 ]
@@ -244,12 +250,12 @@ function Navbar() {
         scrolled ? 'border-b border-slate-200 bg-white/95 text-ink shadow-lg backdrop-blur-xl' : 'text-white'
       }`}
     >
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+      <nav className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <a href="#home" className="flex items-center" onClick={() => setOpen(false)}>
           <img
             src="/images/newlogo.jpeg"
             alt="SA Hlolo Entle Holdings"
-            className="h-16 w-16 rounded-full bg-white object-cover p-1 shadow-glow ring-1 ring-white/40"
+            className="h-20 w-20 rounded-full bg-white object-cover p-1.5 shadow-glow ring-1 ring-white/40"
           />
           <span className="sr-only">SA Hlolo Entle Holdings home</span>
         </a>
@@ -705,18 +711,21 @@ function Blog() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.07 }}
-              className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
+              className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
             >
-              <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-navy">{post.category}</span>
-                <Newspaper className="text-gold" size={22} aria-hidden="true" />
+              <img src={post.image} alt={post.imageAlt} className="h-56 w-full object-cover" />
+              <div className="p-6">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-navy">{post.category}</span>
+                  <Newspaper className="text-gold" size={22} aria-hidden="true" />
+                </div>
+                <h3 className="mt-6 text-2xl font-black leading-tight text-ink">{post.title}</h3>
+                <p className="mt-3 text-sm font-bold text-gold">{post.date}</p>
+                <p className="mt-4 text-sm leading-6 text-muted">{post.excerpt}</p>
+                <a href="#contact" className="mt-6 inline-flex items-center gap-2 text-sm font-black text-navy hover:text-gold">
+                  Ask about this <ChevronRight size={17} aria-hidden="true" />
+                </a>
               </div>
-              <h3 className="mt-6 text-2xl font-black leading-tight text-ink">{post.title}</h3>
-              <p className="mt-3 text-sm font-bold text-gold">{post.date}</p>
-              <p className="mt-4 text-sm leading-6 text-muted">{post.excerpt}</p>
-              <a href="#contact" className="mt-6 inline-flex items-center gap-2 text-sm font-black text-navy hover:text-gold">
-                Ask about this <ChevronRight size={17} aria-hidden="true" />
-              </a>
             </motion.article>
           ))}
         </div>
@@ -843,7 +852,7 @@ function Footer() {
           <img
             src="/images/newlogo.jpeg"
             alt="SA Hlolo Entle Holdings"
-            className="h-16 w-16 rounded-full bg-white object-cover p-1 shadow-glow ring-1 ring-white/20"
+            className="h-20 w-20 rounded-full bg-white object-cover p-1.5 shadow-glow ring-1 ring-white/20"
           />
           <span className="sr-only">SA Hlolo Entle Holdings</span>
         </div>
